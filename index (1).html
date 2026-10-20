@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="เว็บไซต์ให้ความรู้เรื่องศิลปะและวัฒนธรรมไทย สำหรับนักเรียนและนักศึกษา">
+  <title>ศิลปะและวัฒนธรรมไทย | Thai Heritage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+:root{
+  --maroon:#5d1721; --maroon-2:#7b2530; --gold:#c89b3c; --gold-light:#e5c56d;
+  --cream:#f7f0df; --paper:#fffaf0; --ink:#2b2522; --muted:#716862; --line:#e5dac7;
+  --dark:#201719; --shadow:0 18px 50px rgba(53,25,18,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
+body{margin:0;font-family:"Noto Sans Thai","Prompt",sans-serif;color:var(--ink);background:var(--paper);line-height:1.8}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;background-image:radial-gradient(#5d1721 .7px,transparent .7px);background-size:8px 8px;z-index:10}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;object-fit:cover}
+button{font:inherit}
+.top-pattern{height:5px;background:linear-gradient(90deg,var(--maroon),var(--gold),var(--maroon))}
+.site-header{height:78px;position:sticky;top:0;z-index:20;background:rgba(255,250,240,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 clamp(18px,4vw,60px);gap:30px}
+.brand{display:flex;align-items:center;gap:11px;min-width:max-content}
+.brand-mark{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--gold);color:var(--gold);font-size:22px;font-weight:800;border-radius:50%}
+.brand strong{display:block;color:var(--maroon);font-size:14px;line-height:1.2}
+.brand small{display:block;color:var(--gold);font-size:9px;letter-spacing:2px;margin-top:2px}
+.main-nav{margin-left:auto;display:flex;align-items:center;gap:2px}
+.main-nav a{padding:8px 8px;font-size:12px;font-weight:600;color:#554b46;border-radius:8px;white-space:nowrap}
+.main-nav a:hover,.main-nav a.active{color:var(--maroon);background:#f1e5cd}
+.menu-toggle{display:none;background:none;border:0;margin-left:auto;width:44px;height:44px}
+.menu-toggle span{display:block;width:25px;height:2px;background:var(--maroon);margin:5px auto}
+.hero{min-height:calc(100vh - 83px);display:grid;place-items:center;position:relative;background-image:var(--hero-image);background-size:cover;background-position:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(32,23,25,.88),rgba(32,23,25,.55),rgba(32,23,25,.2))}
+.hero-content{position:relative;z-index:1;color:white;width:min(900px,90%);margin-right:auto;margin-left:10%;padding:90px 0}
+.eyebrow{font-size:11px;letter-spacing:3px;font-weight:700;color:var(--gold);text-transform:uppercase}
+.hero h1{font-size:clamp(48px,8vw,92px);line-height:1.05;margin:18px 0 22px;font-weight:800}
+.hero h1 em{color:var(--gold-light);font-style:normal}
+.hero p{font-size:18px;max-width:650px;color:#f4ede5;margin-bottom:34px}
+.btn{display:inline-flex;align-items:center;gap:22px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:14px}
+.btn-gold{background:var(--gold);color:#241719;box-shadow:0 8px 25px rgba(200,155,60,.25)}
+.btn-gold:hover{transform:translateY(-2px)}
+.hero-credit{position:absolute;right:25px;bottom:18px;color:#fff;opacity:.75;font-size:10px}
+.section{padding:105px clamp(20px,7vw,110px);position:relative}
+.section-heading{max-width:850px;margin:0 auto 52px;text-align:center}
+.section-heading h2{font-size:clamp(34px,5vw,58px);line-height:1.15;color:var(--maroon);margin:10px 0 16px}
+.section-heading h2 span{color:var(--gold)}
+.section-heading p{color:var(--muted);max-width:720px;margin:0 auto}
+.section-heading.light h2{color:#fff}.section-heading.light p{color:#d8cbc2}
+.intro{background:var(--paper)}
+.intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1050px;margin:auto}
+.intro-stat{border-top:3px solid var(--gold);padding:22px 20px;background:#fff;box-shadow:var(--shadow)}
+.intro-stat strong{display:block;color:var(--maroon);font-size:24px}.intro-stat span{color:var(--muted);font-size:14px}
+.dark-section{background:var(--dark);color:#fff}
+.card-grid{display:grid;gap:22px;max-width:1250px;margin:auto}
+.card-grid.five{grid-template-columns:repeat(5,1fr)}
+.art-card{background:#2a2021;border:1px solid #453437;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.18)}
+.art-card img{height:190px}.art-card>div{padding:21px}
+.art-card h3{font-size:21px;margin:7px 0}.art-card p{color:#cbbfba;font-size:13px;margin:0 0 14px}.tag{font-size:10px;color:var(--gold);letter-spacing:1.5px;font-weight:800}
+.source{font-size:11px;color:var(--gold-light);display:inline-block;border-bottom:1px dashed #b79550}
+.pattern-card{display:flex;flex-direction:column;background:#fffaf0;color:var(--ink);border:0}.pattern-card>div:last-child{padding:21px}.pattern-art,.craft-icon{height:190px;display:grid;place-items:center;background:radial-gradient(circle at 30% 30%,#e4bd62,transparent 25%),linear-gradient(135deg,#5d1721,#8c3037);color:#f9dfa0;font-weight:800;text-align:center;font-size:36px}.craft-icon{font-size:65px}
+.pattern-card h3{font-size:19px;margin:7px 0}.pattern-card p{font-size:13px;color:var(--muted)}.pattern-card small{font-size:10px;color:#958980}
+.culture-layout{max-width:1150px;margin:auto;display:grid;grid-template-columns:1fr 1.3fr;gap:55px;align-items:start}
+.culture-feature{background:var(--maroon);color:white;padding:55px 42px;min-height:400px;display:flex;flex-direction:column;justify-content:center;box-shadow:var(--shadow)}
+.feature-symbol{font-size:64px;color:var(--gold-light);font-weight:800;margin-bottom:15px}.culture-feature h3{font-size:30px;margin:0 0 12px}.culture-feature p{color:#eadfda}
+.culture-list{display:grid;gap:4px}.mini-card{display:flex;gap:22px;padding:22px 0;border-bottom:1px solid var(--line)}.mini-card>span{font-family:serif;color:var(--gold);font-size:20px}.mini-card h3{margin:0;color:var(--maroon);font-size:18px}.mini-card p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.cream-section{background:var(--cream)}
+.tradition-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1200px;margin:auto}
+.tradition-card{background:#fff;border:1px solid var(--line);overflow:hidden;box-shadow:0 10px 30px rgba(60,35,20,.06)}
+.tradition-card img{height:220px}.tradition-card>div{padding:20px}.tradition-card span{font-size:10px;color:var(--gold);font-weight:800;letter-spacing:.7px}.tradition-card h3{margin:5px 0;color:var(--maroon);font-size:22px}.tradition-card p{font-size:13px;color:var(--muted);margin:0}.tradition-card.no-image{display:flex;flex-direction:column}.tradition-emblem{height:180px;background:linear-gradient(135deg,#6a1c28,#b18437);display:grid;place-items:center;color:#f9e3a0;font-size:32px;font-weight:800}
+.clothing-layout{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.clothing-photo{margin:0;background:white;padding:12px;box-shadow:var(--shadow);transform:rotate(-1deg)}.clothing-photo img{height:580px}.clothing-photo figcaption{font-size:10px;color:var(--muted);padding:9px 3px 0}
+.clothing-content h3{font-size:31px;color:var(--maroon);margin:20px 0 10px}.clothing-content p{color:var(--muted)}.clothing-chips{display:flex;flex-wrap:wrap;gap:8px}.clothing-chips span{border:1px solid var(--gold);color:var(--maroon);padding:6px 12px;border-radius:99px;font-size:11px;font-weight:700}
+.notice{background:#f6edd9;border-left:4px solid var(--gold);padding:14px 16px;font-size:12px;color:#685b50;margin:22px 0}.text-link{font-weight:700;color:var(--maroon);font-size:13px}
+.food-grid{max-width:1150px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.food-card{background:#2b2223;overflow:hidden}.food-card img{height:210px}.food-card>div{padding:19px}.food-card h3{margin:0 0 5px;font-size:21px}.food-card p{color:#cfc1bb;font-size:12px;margin:0 0 12px}
+.architecture-feature{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.2fr 1fr;background:#fff;box-shadow:var(--shadow)}.architecture-feature img{height:460px}.architecture-copy{padding:50px}.architecture-copy h3{font-size:31px;color:var(--maroon);line-height:1.3}.architecture-copy p{color:var(--muted)}.arch-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}.arch-list span{padding:7px 11px;background:var(--cream);color:var(--maroon);font-size:11px;border-radius:5px}
+.music-grid{max-width:1150px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.music-card{background:#fff;border:1px solid var(--line);box-shadow:0 12px 35px rgba(60,35,20,.07)}.music-card img{height:260px}.music-card>div{padding:22px}.music-card h3{color:var(--maroon);font-size:23px;margin:5px 0}.music-card p{font-size:13px;color:var(--muted)}
+.filter-bar{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:0 auto 35px}.filter{border:1px solid #654b4f;background:transparent;color:#dbcac4;padding:7px 15px;border-radius:99px;cursor:pointer;font-size:12px}.filter.active,.filter:hover{background:var(--gold);border-color:var(--gold);color:#261719}
+.gallery-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.gallery-item{position:relative;border:0;padding:0;overflow:hidden;background:#332426;cursor:pointer;aspect-ratio:1/1}.gallery-item img{height:100%;transition:.5s}.gallery-item:hover img{transform:scale(1.06);filter:brightness(.72)}.gallery-item span{position:absolute;left:13px;bottom:10px;color:#fff;font-size:11px;text-shadow:0 2px 8px #000}
+.about-section{background:linear-gradient(135deg,#5d1721,#321c20);color:#fff}.about-box{max-width:900px;margin:auto;text-align:center}.about-box h2{font-size:clamp(35px,5vw,58px);margin:12px 0}.about-box p{color:#eadfd9}.about-points{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin-top:28px}.about-points span{border:1px solid #9e6f45;padding:7px 12px;border-radius:99px;font-size:11px;color:#f1d994}
+.footer{background:#1b1315;color:#d7cbc5;padding:60px clamp(20px,7vw,100px) 20px}.footer-main{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.6fr .8fr 1fr;gap:60px}.footer h3{color:#fff}.footer h4{color:var(--gold-light);margin-top:0}.footer p{font-size:12px;color:#a99b96}.footer a{display:block;font-size:12px;margin:8px 0;color:#cfc1bb}.footer-bottom{max-width:1200px;margin:45px auto 0;border-top:1px solid #3b2e30;padding-top:18px;display:flex;justify-content:space-between;font-size:11px;color:#897b78}
+.lightbox{position:fixed;inset:0;background:rgba(10,7,8,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:40px}.lightbox.open{display:flex}.lightbox img{max-width:min(1100px,92vw);max-height:80vh;width:auto;box-shadow:0 20px 80px #000}.lightbox-caption{position:absolute;bottom:18px;color:white;font-size:13px}.lightbox-close{position:absolute;top:18px;right:25px;background:none;border:0;color:#fff;font-size:40px;cursor:pointer}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:1150px){.main-nav{gap:0}.main-nav a{font-size:10px;padding:7px 5px}.card-grid.five{grid-template-columns:repeat(3,1fr)}.food-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:850px){.site-header{height:70px}.menu-toggle{display:block}.main-nav{position:absolute;left:0;right:0;top:70px;background:#fffaf0;border-bottom:1px solid var(--line);display:none;flex-direction:column;align-items:stretch;padding:10px 18px;box-shadow:0 15px 30px rgba(0,0,0,.08)}.main-nav.open{display:flex}.main-nav a{font-size:13px;padding:10px}.hero-content{margin-left:7%;padding:70px 0}.intro-grid,.culture-layout,.clothing-layout,.architecture-feature{grid-template-columns:1fr}.tradition-grid,.music-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:repeat(3,1fr)}.clothing-photo img{height:460px}.footer-main{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.section{padding:75px 18px}.hero{min-height:78vh}.hero h1{font-size:48px}.hero p{font-size:15px}.card-grid.five,.tradition-grid,.food-grid,.music-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(2,1fr)}.intro-grid{grid-template-columns:1fr}.clothing-photo img{height:390px}.architecture-feature img{height:300px}.architecture-copy{padding:28px}.footer-main{grid-template-columns:1fr;gap:30px}.footer-bottom{flex-direction:column;gap:8px}.hero-credit{font-size:8px;right:10px}.culture-feature{min-height:330px;padding:35px 28px}}
+
+</style>
+</head>
+<body>
+  <div class="top-pattern"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#home" aria-label="กลับหน้าแรก">
+      <span class="brand-mark">ศ</span>
+      <span><strong>ศิลปะและวัฒนธรรมไทย</strong><small>THAI HERITAGE</small></span>
+    </a>
+    <button class="menu-toggle" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main-nav" aria-label="เมนูหลัก">
+      <a href="#home">หน้าแรก</a>
+      <a href="#art">ศิลปะไทย</a>
+      <a href="#culture">วัฒนธรรมไทย</a>
+      <a href="#traditions">ประเพณีไทย</a>
+      <a href="#clothing">การแต่งกายไทย</a>
+      <a href="#food">อาหารไทย</a>
+      <a href="#architecture">สถาปัตยกรรม</a>
+      <a href="#music">ดนตรีและนาฏศิลป์</a>
+      <a href="#gallery">แกลเลอรี</a>
+      <a href="#about">เกี่ยวกับเว็บไซต์</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home" style="--hero-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Loi%20KRATHONG%20FESTIVAL%20CHIANG%20MAI%2001.jpg?width=1600')">
+      <div class="hero-overlay"></div>
+      <div class="hero-content reveal">
+        <span class="eyebrow">THAI ART • CULTURE • HERITAGE</span>
+        <h1>ศิลปะและ<br><em>วัฒนธรรมไทย</em></h1>
+        <p>เรียนรู้ความงดงามของภูมิปัญญา ศิลปะ ประเพณี และวิถีชีวิตที่สะท้อนเอกลักษณ์ความเป็นไทย</p>
+        <a class="btn btn-gold" href="#intro">เริ่มเรียนรู้ <span>↓</span></a>
+      </div>
+      <div class="hero-credit">ภาพ: Loi Krathong, Chiang Mai • Wikimedia Commons</div>
+    </section>
+
+    <section class="intro section" id="intro">
+      <div class="section-heading reveal">
+        <span class="eyebrow">01 / INTRODUCTION</span>
+        <h2>มรดกที่มีชีวิต<br><span>จากอดีตสู่ปัจจุบัน</span></h2>
+        <p>ศิลปะและวัฒนธรรมไทยเกิดจากการสั่งสมความรู้ ความเชื่อ และวิถีชีวิตของผู้คนในแต่ละภูมิภาค จนกลายเป็นเอกลักษณ์ที่หลากหลายและยังคงสืบทอดมาถึงปัจจุบัน</p>
+      </div>
+      <div class="intro-grid">
+        <div class="intro-stat reveal"><strong>ศิลป์</strong><span>งานสร้างสรรค์ที่สะท้อนความเชื่อและความงาม</span></div>
+        <div class="intro-stat reveal"><strong>วัฒนธรรม</strong><span>แบบแผนการดำเนินชีวิตและภูมิปัญญาที่สืบต่อกัน</span></div>
+        <div class="intro-stat reveal"><strong>มรดก</strong><span>คุณค่าที่คนรุ่นปัจจุบันร่วมกันอนุรักษ์และต่อยอด</span></div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="art">
+      <div class="section-heading light reveal">
+        <span class="eyebrow">02 / THAI ART</span>
+        <h2>ศิลปะไทย</h2>
+        <p>ศิลปะไทยมีทั้งจิตรกรรม ประติมากรรม งานช่าง และลวดลายประดับ ซึ่งสะท้อนความเชื่อทางศาสนาและความประณีตของช่างไทย</p>
+      </div>
+      <div class="card-grid five">
+        <article class="art-card image-card reveal">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E0%B8%88%E0%B8%B4%E0%B8%95%E0%B8%A3%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%9D%E0%B8%B2%E0%B8%9C%E0%B8%99%E0%B8%B1%E0%B8%87%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7%20Wat%20Phra%20Kaew%200005574%20by%20Trisorn%20Triboon%20D85%209884.jpg?width=1200" alt="จิตรกรรมฝาผนังภายในวัดพระศรีรัตนศาสดาราม หรือวัดพระแก้ว">
+          <div><span class="tag">จิตรกรรม</span><h3>จิตรกรรมไทย</h3><p>ภาพเขียนฝาผนังไทยมักเล่าเรื่องทางศาสนา วรรณคดี และวิถีชีวิตด้วยรูปแบบเฉพาะของศิลปะไทย</p><a class="source" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:%E0%B8%88%E0%B8%B4%E0%B8%95%E0%B8%A3%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%9D%E0%B8%B2%E0%B8%9C%E0%B8%99%E0%B8%B1%E0%B8%87%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7_Wat_Phra_Kaew_0005574_by_Trisorn_Triboon_D85_9884.jpg">แหล่งภาพ ↗</a></div>
+        </article>
+        <article class="art-card image-card reveal">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Thai%20buddha%20statue.jpg?width=1200" alt="พระพุทธรูปในประเทศไทย แสดงลักษณะประติมากรรมไทย">
+          <div><span class="tag">ประติมากรรม</span><h3>ประติมากรรมไทย</h3><p>พระพุทธรูปเป็นตัวอย่างสำคัญของประติมากรรมไทยที่มีพัฒนาการแตกต่างกันในแต่ละยุคสมัย</p><a class="source" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Thai_buddha_statue.jpg">แหล่งภาพ ↗</a></div>
+        </article>
+        <article class="art-card pattern-card reveal">
+          <div class="pattern-art">ลาย<br>กนก</div>
+          <div><span class="tag">งานช่าง</span><h3>ลวดลายไทย</h3><p>ลายกนกและลายประจำยามเป็นองค์ประกอบตกแต่งที่พบในงานสถาปัตยกรรมและงานช่างไทย</p><small>ภาพประกอบเชิงกราฟิก • ลายไทยร่วมสมัย</small></div>
+        </article>
+        <article class="art-card pattern-card reveal">
+          <div class="craft-icon">✦</div>
+          <div><span class="tag">หัตถกรรม</span><h3>งานแกะสลัก</h3><p>งานแกะสลักไม้และงานประณีตศิลป์ต้องอาศัยทักษะ ความละเอียด และการสืบทอดภูมิปัญญาช่าง</p><small>ภาพประกอบเชิงกราฟิก • งานช่างไทย</small></div>
+        </article>
+        <article class="art-card pattern-card reveal">
+          <div class="craft-icon">◇</div>
+          <div><span class="tag">เครื่องถ้วย</span><h3>เครื่องถ้วยและงานหัตถกรรม</h3><p>งานเครื่องปั้นและหัตถกรรมเป็นทั้งของใช้และงานศิลป์ที่สะท้อนวัสดุและภูมิปัญญาท้องถิ่น</p><small>ภาพประกอบเชิงกราฟิก • หัตถกรรมไทย</small></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="culture">
+      <div class="section-heading reveal">
+        <span class="eyebrow">03 / THAI CULTURE</span>
+        <h2>วัฒนธรรมไทย</h2>
+        <p>วัฒนธรรมสะท้อนวิธีคิด การอยู่ร่วมกัน และความสัมพันธ์ระหว่างคน ชุมชน ธรรมชาติ และศาสนา</p>
+      </div>
+      <div class="culture-layout">
+        <div class="culture-feature reveal">
+          <div class="feature-symbol">ไหว้</div>
+          <h3>การไหว้</h3>
+          <p>การไหว้เป็นมารยาทไทยที่ใช้แสดงความเคารพ ทักทาย และขอบคุณ โดยระดับของการไหว้สัมพันธ์กับบุคคลและโอกาส</p>
+        </div>
+        <div class="culture-list">
+          <article class="mini-card reveal"><span>01</span><div><h3>การเคารพผู้ใหญ่</h3><p>ให้ความสำคัญกับความสุภาพ การใช้คำพูด และการปฏิบัติต่อผู้มีอาวุโส</p></div></article>
+          <article class="mini-card reveal"><span>02</span><div><h3>วิถีชีวิตชุมชน</h3><p>ชุมชนไทยมีความหลากหลายตามภูมิประเทศ อาชีพ และประวัติศาสตร์ท้องถิ่น</p></div></article>
+          <article class="mini-card reveal"><span>03</span><div><h3>ภูมิปัญญาท้องถิ่น</h3><p>ความรู้ด้านอาหาร งานช่าง สมุนไพร เกษตร และการจัดการทรัพยากรถ่ายทอดผ่านคนรุ่นต่อรุ่น</p></div></article>
+          <article class="mini-card reveal"><span>04</span><div><h3>ศาสนาและการทำบุญ</h3><p>กิจกรรมทางศาสนาเป็นส่วนหนึ่งของวิถีชีวิตและชุมชนในหลายพื้นที่ของประเทศไทย</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cream-section" id="traditions">
+      <div class="section-heading reveal">
+        <span class="eyebrow">04 / TRADITIONS</span>
+        <h2>ประเพณีไทย</h2>
+        <p>ประเพณีแต่ละพื้นที่มีรายละเอียดเฉพาะตัว จึงควรเรียนรู้ทั้งความหมายและบริบทของท้องถิ่นควบคู่กัน</p>
+      </div>
+      <div class="tradition-grid">
+        <article class="tradition-card reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Songkran%20in%20Thailand.jpg?width=1200" alt="ภาพกิจกรรมสงกรานต์ในประเทศไทย" onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Loi%20KRATHONG%20FESTIVAL%20CHIANG%20MAI%2001.jpg?width=1600'"><div><span>ทั่วประเทศ • เมษายน</span><h3>สงกรานต์</h3><p>เทศกาลปีใหม่ไทยที่มีทั้งการทำบุญ การรดน้ำขอพร และกิจกรรมทางสังคมร่วมสมัย</p></div></article>
+        <article class="tradition-card reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Loi%20KRATHONG%20FESTIVAL%20CHIANG%20MAI%2006.jpg?width=1200" alt="การเฉลิมฉลองประเพณีลอยกระทงในเชียงใหม่"><div><span>ทั่วประเทศ • เดือน 12</span><h3>ลอยกระทง</h3><p>ประเพณีที่เกี่ยวข้องกับการลอยกระทงในคืนวันเพ็ญเดือนสิบสอง และมีรูปแบบกิจกรรมแตกต่างกันตามท้องถิ่น</p></div></article>
+        <article class="tradition-card no-image reveal"><div class="tradition-emblem">บั้งไฟ</div><div><span>ภาคอีสาน • ยโสธรและพื้นที่อื่น</span><h3>บุญบั้งไฟ</h3><p>ประเพณีสำคัญของชุมชนอีสานที่สัมพันธ์กับฤดูกาลเพาะปลูกและความเชื่อท้องถิ่น</p></div></article>
+        <article class="tradition-card no-image reveal"><div class="tradition-emblem">ผีตาโขน</div><div><span>อำเภอด่านซ้าย • เลย</span><h3>ผีตาโขน</h3><p>งานประเพณีที่มีขบวนแห่และหน้ากากสีสันโดดเด่น เป็นส่วนหนึ่งของงานบุญหลวง</p></div></article>
+        <article class="tradition-card no-image reveal"><div class="tradition-emblem">เทียน</div><div><span>หลายจังหวัด • ช่วงเข้าพรรษา</span><h3>แห่เทียนพรรษา</h3><p>ประเพณีที่มีการจัดทำและแห่เทียนพรรษา โดยอุบลราชธานีเป็นพื้นที่ที่มีงานขนาดใหญ่และมีชื่อเสียง</p></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="clothing">
+      <div class="section-heading reveal">
+        <span class="eyebrow">05 / THAI CLOTHING</span>
+        <h2>การแต่งกายไทย</h2>
+        <p>การแต่งกายไทยมีหลายรูปแบบ ทั้งชุดไทยที่ใช้ในโอกาสพิธีการและเครื่องแต่งกายพื้นถิ่นที่สะท้อนอัตลักษณ์ของแต่ละภูมิภาค</p>
+      </div>
+      <div class="clothing-layout">
+        <figure class="clothing-photo reveal">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Couple%20in%20Thai%20costume.jpg?width=900" alt="คู่บุคคลสวมเครื่องแต่งกายไทยในเชียงใหม่">
+          <figcaption>ภาพตัวอย่างการแต่งกายไทย • Wikimedia Commons</figcaption>
+        </figure>
+        <div class="clothing-content reveal">
+          <div class="clothing-chips"><span>ชุดไทยจักรี</span><span>ชุดไทยจักรพรรดิ</span><span>ชุดไทยบรมพิมาน</span><span>ชุดไทยศิวาลัย</span></div>
+          <h3>ความหลากหลายของเครื่องแต่งกาย</h3>
+          <p>ชื่อชุดไทยพระราชนิยมแต่ละแบบมีลักษณะการนุ่งห่มและโอกาสใช้แตกต่างกัน ส่วนการแต่งกายพื้นเมืองของภาคเหนือ อีสาน กลาง และใต้ก็มีผ้า ลวดลาย และรูปแบบที่เป็นเอกลักษณ์</p>
+          <div class="notice">หมายเหตุ: ภาพด้านซ้ายเป็นภาพ “การแต่งกายไทย” โดยรวม ไม่ได้ใช้ยืนยันว่าเป็นชุดไทยพระราชนิยมแบบใดแบบหนึ่ง</div>
+          <a class="text-link" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/Category:Traditional_clothing_of_Thailand">ดูคลังภาพเครื่องแต่งกายไทย ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="food">
+      <div class="section-heading light reveal">
+        <span class="eyebrow">06 / THAI CUISINE</span>
+        <h2>อาหารไทย</h2>
+        <p>อาหารไทยมีรสชาติหลากหลายและใช้สมุนไพร เครื่องเทศ และวัตถุดิบท้องถิ่นเป็นองค์ประกอบสำคัญ</p>
+      </div>
+      <div class="food-grid">
+        <article class="food-card reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tom%20yum%20goong-01.jpg?width=1000" alt="ต้มยำกุ้ง"><div><h3>ต้มยำกุ้ง</h3><p>ซุปที่มีรสเผ็ด เปรี้ยว และหอมสมุนไพร โดยกุ้งเป็นวัตถุดิบเด่น</p><a class="source" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Tom_yum_goong-01.jpg">แหล่งภาพ ↗</a></div></article>
+        <article class="food-card reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pad%20Thai%20in%20Thailand.jpg?width=1000" alt="ผัดไทย"><div><h3>ผัดไทย</h3><p>อาหารเส้นผัดที่ใช้เส้นจันท์หรือเส้นข้าว พร้อมเครื่องปรุงรสเปรี้ยวหวานเค็มและเครื่องเคียง</p><a class="source" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Pad_Thai_in_Thailand.jpg">แหล่งภาพ ↗</a></div></article>
+        <article class="food-card reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Green%20curry.jpg?width=1000" alt="แกงเขียวหวาน"><div><h3>แกงเขียวหวาน</h3><p>แกงกะทิที่มีพริกแกงสีเขียวและสมุนไพรไทย ให้รสเข้มข้นและมีกลิ่นหอม</p><a class="source" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Green_curry.jpg">แหล่งภาพ ↗</a></div></article>
+        <article class="food-card reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Som%20tam%20thai.JPG?width=1000" alt="ส้มตำไทย"><div><h3>ส้มตำ</h3><p>อาหารจากมะละกอดิบซอย ปรุงรสแบบไทยด้วยมะนาว น้ำปลา น้ำตาล และพริก</p><a class="source" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Som_tam_thai.JPG">แหล่งภาพ ↗</a></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="section-heading reveal">
+        <span class="eyebrow">07 / ARCHITECTURE</span>
+        <h2>สถาปัตยกรรมไทย</h2>
+        <p>สถาปัตยกรรมไทยมีรูปแบบหลากหลายตามยุคสมัย ศาสนา ภูมิภาค และการใช้สอย</p>
+      </div>
+      <div class="architecture-feature reveal">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/13th%20Century%20Thai%20City%20of%20Sukhothai-%20Wat%20Sa%20Si%2C%20Standing%20Buddha%20Statue%2C%20Sukhothai%20Historical%20Park.jpg?width=1000" alt="พระพุทธรูปยืนที่วัดสระศรี อุทยานประวัติศาสตร์สุโขทัย">
+        <div class="architecture-copy"><span class="tag">สุโขทัย</span><h3>มรดกทางสถาปัตยกรรมและศิลปกรรม</h3><p>วัด เจดีย์ พระปรางค์ และเรือนไทยต่างสะท้อนแนวคิดเรื่องพื้นที่ ความเชื่อ วัสดุ และสภาพภูมิอากาศในบริบทของไทย</p><div class="arch-list"><span>วัดไทย</span><span>พระอุโบสถ</span><span>พระปรางค์</span><span>เจดีย์</span><span>เรือนไทย</span></div></div>
+      </div>
+    </section>
+
+    <section class="section cream-section" id="music">
+      <div class="section-heading reveal">
+        <span class="eyebrow">08 / MUSIC & PERFORMANCE</span>
+        <h2>ดนตรีและนาฏศิลป์ไทย</h2>
+        <p>ศิลปะการแสดงไทยผสานดนตรี ท่ารำ เครื่องแต่งกาย และเรื่องราวเข้าด้วยกัน</p>
+      </div>
+      <div class="music-grid">
+        <article class="music-card reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Khon%20performance%20Culture%20of%20Thailand%20by%20Peak%20Hora%20DSCN8863.jpg?width=1200" alt="การแสดงโขนของไทย"><div><span class="tag">นาฏศิลป์</span><h3>โขน</h3><p>การแสดงนาฏศิลป์ชั้นสูงของไทยที่มีหน้ากาก ท่ารำ ดนตรี และเรื่องราวจากรามเกียรติ์เป็นองค์ประกอบสำคัญ</p><a class="source" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Khon_performance_Culture_of_Thailand_by_Peak_Hora_DSCN8863.jpg">แหล่งภาพ ↗</a></div></article>
+        <article class="music-card reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ranat%20ek.jpg?width=1000" alt="ระนาดเอก เครื่องดนตรีไทย"><div><span class="tag">เครื่องดนตรี</span><h3>ระนาด</h3><p>เครื่องดนตรีประเภทเครื่องตีที่มีบทบาทสำคัญในวงดนตรีไทย เช่น วงปี่พาทย์</p><a class="source" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Ranat_ek.jpg">แหล่งภาพ ↗</a></div></article>
+        <article class="music-card reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Thai%20khim%20%285339743448%29.jpg?width=1000" alt="ขิม เครื่องดนตรีไทยประเภทเครื่องสายตี"><div><span class="tag">เครื่องดนตรี</span><h3>ขิม</h3><p>เครื่องดนตรีประเภทเครื่องสายที่บรรเลงโดยใช้ไม้ตีสาย มีเสียงใสและเป็นส่วนหนึ่งของดนตรีไทย</p><a class="source" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Thai_khim_(5339743448).jpg">แหล่งภาพ ↗</a></div></article>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="gallery">
+      <div class="section-heading light reveal">
+        <span class="eyebrow">09 / GALLERY</span>
+        <h2>แกลเลอรี</h2>
+        <p>เลือกดูภาพตามหมวดหมู่ และคลิกภาพเพื่อขยาย</p>
+      </div>
+      <div class="filter-bar" role="group" aria-label="ตัวกรองแกลเลอรี">
+        <button class="filter active" data-filter="all">ทั้งหมด</button>
+        <button class="filter" data-filter="art">ศิลปะ</button>
+        <button class="filter" data-filter="tradition">ประเพณี</button>
+        <button class="filter" data-filter="food">อาหาร</button>
+        <button class="filter" data-filter="music">ดนตรี/นาฏศิลป์</button>
+        <button class="filter" data-filter="architecture">สถาปัตยกรรม</button>
+      </div>
+      <div class="gallery-grid">
+        <button class="gallery-item reveal" data-category="art" data-title="จิตรกรรมฝาผนังวัดพระแก้ว" data-src="https://commons.wikimedia.org/wiki/Special:FilePath/%E0%B8%88%E0%B8%B4%E0%B8%95%E0%B8%A3%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%9D%E0%B8%B2%E0%B8%9C%E0%B8%99%E0%B8%B1%E0%B8%87%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7%20Wat%20Phra%20Kaew%200005574%20by%20Trisorn%20Triboon%20D85%209884.jpg?width=1200"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E0%B8%88%E0%B8%B4%E0%B8%95%E0%B8%A3%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%9D%E0%B8%B2%E0%B8%9C%E0%B8%99%E0%B8%B1%E0%B8%87%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7%20Wat%20Phra%20Kaew%200005574%20by%20Trisorn%20Triboon%20D85%209884.jpg?width=1200" alt="จิตรกรรมฝาผนังวัดพระแก้ว"><span>จิตรกรรมไทย</span></button>
+        <button class="gallery-item reveal" data-category="art" data-title="พระพุทธรูปไทย" data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Thai%20buddha%20statue.jpg?width=1200"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Thai%20buddha%20statue.jpg?width=1200" alt="พระพุทธรูปไทย"><span>ประติมากรรม</span></button>
+        <button class="gallery-item reveal" data-category="tradition" data-title="ลอยกระทง เชียงใหม่" data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Loi%20KRATHONG%20FESTIVAL%20CHIANG%20MAI%2006.jpg?width=1200"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Loi%20KRATHONG%20FESTIVAL%20CHIANG%20MAI%2006.jpg?width=1200" alt="ลอยกระทงเชียงใหม่"><span>ประเพณี</span></button>
+        <button class="gallery-item reveal" data-category="food" data-title="ผัดไทย" data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Pad%20Thai%20in%20Thailand.jpg?width=1000"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pad%20Thai%20in%20Thailand.jpg?width=1000" alt="ผัดไทย"><span>อาหารไทย</span></button>
+        <button class="gallery-item reveal" data-category="food" data-title="ต้มยำกุ้ง" data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Tom%20yum%20goong-01.jpg?width=1000"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tom%20yum%20goong-01.jpg?width=1000" alt="ต้มยำกุ้ง"><span>อาหารไทย</span></button>
+        <button class="gallery-item reveal" data-category="music" data-title="การแสดงโขน" data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Khon%20performance%20Culture%20of%20Thailand%20by%20Peak%20Hora%20DSCN8863.jpg?width=1200"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Khon%20performance%20Culture%20of%20Thailand%20by%20Peak%20Hora%20DSCN8863.jpg?width=1200" alt="การแสดงโขน"><span>นาฏศิลป์</span></button>
+        <button class="gallery-item reveal" data-category="music" data-title="ระนาดเอก" data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Ranat%20ek.jpg?width=1000"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ranat%20ek.jpg?width=1000" alt="ระนาดเอก"><span>ดนตรีไทย</span></button>
+        <button class="gallery-item reveal" data-category="architecture" data-title="วัดสระศรี สุโขทัย" data-src="https://commons.wikimedia.org/wiki/Special:FilePath/13th%20Century%20Thai%20City%20of%20Sukhothai-%20Wat%20Sa%20Si%2C%20Standing%20Buddha%20Statue%2C%20Sukhothai%20Historical%20Park.jpg?width=1000"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/13th%20Century%20Thai%20City%20of%20Sukhothai-%20Wat%20Sa%20Si%2C%20Standing%20Buddha%20Statue%2C%20Sukhothai%20Historical%20Park.jpg?width=1000" alt="วัดสระศรี สุโขทัย"><span>สถาปัตยกรรม</span></button>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="about-box reveal">
+        <span class="eyebrow">10 / ABOUT</span>
+        <h2>เรียนรู้ • เข้าใจ • สืบสาน</h2>
+        <p>เว็บไซต์นี้จัดทำขึ้นเพื่อการศึกษาและเผยแพร่ความรู้เกี่ยวกับศิลปะ วัฒนธรรม ประเพณี อาหาร สถาปัตยกรรม ดนตรี และนาฏศิลป์ไทย โดยเน้นการนำเสนอข้อมูลอย่างเข้าใจง่ายสำหรับนักเรียนและนักศึกษา</p>
+        <div class="about-points">
+          <span>✓ เนื้อหาแบ่งเป็นหมวดหมู่</span><span>✓ รองรับมือถือ</span><span>✓ มีแหล่งภาพให้ตรวจสอบ</span><span>✓ มี Lightbox และตัวกรองแกลเลอรี</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div><span class="brand-mark">ศ</span><h3>ศิลปะและวัฒนธรรมไทย</h3><p>เว็บไซต์เพื่อการศึกษาและเผยแพร่ความรู้เกี่ยวกับศิลปะและวัฒนธรรมไทย</p></div>
+      <div><h4>เมนูสำคัญ</h4><a href="#art">ศิลปะไทย</a><a href="#traditions">ประเพณีไทย</a><a href="#food">อาหารไทย</a><a href="#gallery">แกลเลอรี</a></div>
+      <div><h4>แหล่งภาพ</h4><p>ภาพประกอบส่วนใหญ่ใช้ Wikimedia Commons โดยมีลิงก์แหล่งที่มาในแต่ละรายการ</p><a target="_blank" rel="noopener" href="https://commons.wikimedia.org/">Wikimedia Commons ↗</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 ศิลปะและวัฒนธรรมไทย</span><a href="#top">กลับด้านบน ↑</a></div>
+  </footer>
+
+  <div class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="ปิดภาพ">×</button>
+    <img src="" alt="">
+    <div class="lightbox-caption"></div>
+  </div>
+
+  <script>
+
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.main-nav');
+
+menuToggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', open);
+});
+
+document.querySelectorAll('.main-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Active menu based on the visible section
+const sections = [...document.querySelectorAll('main section[id]')];
+const navLinks = [...document.querySelectorAll('.main-nav a')];
+
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${entry.target.id}`));
+    }
+  });
+}, {rootMargin:'-35% 0px -55% 0px', threshold:0});
+sections.forEach(section => sectionObserver.observe(section));
+
+// Reveal animations
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Gallery filters
+const filters = document.querySelectorAll('.filter');
+const galleryItems = document.querySelectorAll('.gallery-item');
+filters.forEach(filter => {
+  filter.addEventListener('click', () => {
+    filters.forEach(btn => btn.classList.remove('active'));
+    filter.classList.add('active');
+    const selected = filter.dataset.filter;
+    galleryItems.forEach(item => {
+      const show = selected === 'all' || item.dataset.category === selected;
+      item.style.display = show ? '' : 'none';
+    });
+  });
+});
+
+// Lightbox
+const lightbox = document.querySelector('.lightbox');
+const lightboxImage = lightbox.querySelector('img');
+const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+const closeLightbox = () => {
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  lightboxImage.src = '';
+  document.body.style.overflow = '';
+};
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => {
+    lightboxImage.src = item.dataset.src;
+    lightboxImage.alt = item.querySelector('img').alt;
+    lightboxCaption.textContent = item.dataset.title;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  });
+});
+document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// Close the menu on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    nav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+</script>
+</body>
+</html>
